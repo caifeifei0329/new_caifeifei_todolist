@@ -15,6 +15,10 @@ class TodoDb():
     #     data=cursor.execute('insert into todo(content) values(?)')
 
 
+    # def delete_db(self):
+    #
+
+
     def init_db(self):
         conn=sqlite3.connect('test.db')
         cursor=conn.cursor()
@@ -22,6 +26,18 @@ class TodoDb():
         cursor.close()
         conn.commit()
         conn.close()
+
+    def delete(self, todo_id):
+        conn = sqlite3.connect('test.db')
+        cursor = conn.cursor()
+        cursor.execute('delete from todo where id=todo_id')
+        cursor.close()
+        conn.commit()
+        conn.close()
+
+        print('delete', todo_id)
+
+
 if __name__=='__main__':
     db=TodoDb()
     # db.init_db()
