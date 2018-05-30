@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <title>待办事项</title>
 
+
 </head>
 <body>
+
 <ul>
       {% for value in data %}
-        <li>{{ value }}</li>
+        <li>{{ value[1] }} <button onclick="myFunction({{value[0]}})">delete</button></li>
 
       {% endfor %}
 </ul>
@@ -19,5 +21,11 @@
     <!--<li>测试四</li>-->
     <!--<li>测试五</li>-->
 <!--</ul>-->
+
+    <script>
+        function myFunction(index){
+        console.log('hello',index)
+        }
+    </script>
 </body>
 </html>

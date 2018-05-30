@@ -5,9 +5,9 @@ class TodoDb():
     def read_all(self):
         conn = sqlite3.connect('test.db')
         cursor = conn.cursor()
-        data=cursor.execute('select content from todo')
+        data=cursor.execute('select  id ,content from todo')
         data=data.fetchall()
-        data=[d[0] for d in data]
+        # data=[d[0] for d in data]
         return data
     # def insert_db(self):
     #     conn = sqlite3.connect('test.db')
