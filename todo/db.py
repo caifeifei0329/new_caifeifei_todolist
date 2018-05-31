@@ -42,12 +42,20 @@ class TodoDb():
         cursor.execute('delete from todo where id= ?',(todo_id,))
         cursor.close()
         self.commit()
-        self.close()
+        # self.conn.close()
 
-        print('delete', todo_id)
+    def read(self, todo_id):
+        cursor = self.cursor()
+        cursor.execute('select id ,content from todo where id= ?', (todo_id,))
+        data=cursor.fetchone()
+        print(data)
+        cursor.close()
+        return data
+
 
 
 if __name__=='__main__':
     db=TodoDb()
     # db.init_db()
     db.read_all()
+    # db.read(16)

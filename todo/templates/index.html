@@ -10,7 +10,7 @@
 
 <ul>
       {% for value in data %}
-        <li>{{ value[1] }} <button onclick="deleteTodo({{value[0]}})">delete</button></li>
+        <li>{{ value[1] }} <button onclick="deleteTodo( {{ value[0] }} )">delete</button></li>
 
       {% endfor %}
 </ul>
@@ -24,18 +24,18 @@
 
     <script>
         function deleteTodo(index){
-         console.log('delete',index)
+         console.log('delete',index);
          fetch('http://127.0.0.1:5000/todo/'+index,{ method : 'DELETE'})
                 .then(
                     function(response){
-                      console.log(response.text());
-                      return;
-                    }
-                    ).then(
-                    function(response){
-                        window.location.reload();
-                    }
-                    )
+                      console.log(response.json());
+                      return ;
+                    })
+                    <!--).then(-->
+                    <!--function(response){-->
+                        <!--window.location.reload();-->
+                    <!--}-->
+                    <!--)-->
 
         }
 
