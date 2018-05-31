@@ -23,9 +23,18 @@
 <!--</ul>-->
 
     <script>
-        function myFunction(index){
-        console.log('hello',index)
+        function delete(index){
+        console.log('delete',index)
+         fetch('http://127.0.0.1:5000/todo/'+index,{ method : 'DELETE'})
+                .then(
+                    function(response){
+                      console.log(response.text());
+                      return;
+                    }
+                    )
         }
+
+
     </script>
 </body>
 </html>
