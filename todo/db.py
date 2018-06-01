@@ -14,7 +14,7 @@ class TodoDb():
     def read_all(self):
         # conn = sqlite3.connect('test.db')
         cursor = self.cursor()
-        data=cursor.execute('select  id ,content from todo')
+        data=cursor.execute('select  id ,content from todo order by id desc')
         data=data.fetchall()
         # data=[d[0] for d in data]
         return data
