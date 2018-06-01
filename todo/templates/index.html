@@ -7,6 +7,7 @@
 
 </head>
 <body>
+        <button >insert</button>
 
 <ul>
       {% for value in data %}
@@ -30,12 +31,12 @@
                     function(response){
                       console.log(response.json());
                       return ;
-                    })
-                    <!--).then(-->
-                    <!--function(response){-->
-                        <!--window.location.reload();-->
-                    <!--}-->
-                    <!--)-->
+                    }
+                    ).then(
+                    function(response){
+                        window.location.reload();
+                    }
+                    )
 
         }
 
