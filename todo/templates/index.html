@@ -7,8 +7,12 @@
 
 </head>
 <body>
-        <button >insert</button>
-
+        <button onclick="showDialog()">insert</button>
+<dialog id="newTodoItem">
+    <p>hello</p>
+    <button onclick="hideDialog()">取消</button>
+    <button>确定</button>
+</dialog>
 <ul>
       {% for value in data %}
         <li>{{ value[1] }} <button onclick="deleteTodo( {{ value[0] }} )">delete</button></li>
@@ -40,7 +44,14 @@
 
         }
 
+        function showDialog(){
+            document.getElementById('newTodoItem').showModal();
 
+        }
+         function hideDialog(){
+            document.getElementById('newTodoItem').close();
+
+        }
     </script>
 </body>
 </html>
