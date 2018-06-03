@@ -15,8 +15,12 @@
       </dialog>
 <ul>
       {% for value in data %}
-        <li>{{ value[1] }} <button onclick="deleteTodo( {{ value[0] }} )">delete</button></li>
+        {% if value[2]=='done' %}
 
+    <li><span onclick="del_todo({{value[0]}})"><del>{{ value[1] }}</del></span><button onclick="deleteTodo( {{ value[0] }} )">delete</button></li>
+        {% else %}
+    <li><span onclick="del_todo({{value[0]}})">{{value[1]}}</span><button onclick="deleteTodo( {{ value[0] }} )">delete</button></li>
+        {% endif %}
       {% endfor %}
 </ul>
 <!--<ul>-->
@@ -63,6 +67,19 @@
             })
             document.getElementById('newTodoItem').close();
             window.location.reload()
+
+
+        }
+
+
+        function del_todo(index){
+             fetch('http://127.0.0.1:5000/todo/'+index,{ method : 'PUT'})
+             window.location.reload()
+
+
+
+
+
 
 
         }
